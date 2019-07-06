@@ -1,0 +1,71 @@
+@import 'mixins.scss';
+@import 'terrain.scss';
+@import 'building.scss';
+
+//variables
+$construction-div-size: 80%;
+$buttons-div-width: 100% - $construction-div-size;
+$buttons-margin: 4px;
+
+
+//styles
+* {
+    box-sizing: border-box;
+}
+
+div {
+    @include marin-0();
+}
+
+html{
+    @include full-size();
+    @include marin-0();
+    @include padding-0();
+    @include max-height-100();
+    overflow: hidden;
+}
+
+body{
+    @include full-size();
+    @include marin-0();
+    @include padding-0();
+    @include max-height-100();
+}
+
+#root{
+    @include full-size();
+    @include marin-0();
+    @include padding-0();
+    @include max-height-100();
+}
+
+.application{
+    @include full-size();
+    @include max-height-100();
+    display: flex;
+    flex-direction: row;
+}
+
+.terrain{
+    @include full-height();
+    width: $construction-div-size;
+    @include max-height-100();
+    background: lightblue;
+}
+
+.terrain.night {
+    background: #222222;
+}
+
+.buttons-area{
+    @include full-height();
+    width: $buttons-div-width;
+}
+
+button.light-on-button{
+    margin: $buttons-margin;
+}
+
+.light-off-button{
+    margin: $buttons-margin;
+}

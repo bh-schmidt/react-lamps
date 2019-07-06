@@ -1,0 +1,28 @@
+@mixin full-height {
+    height: 100%;
+}
+
+@mixin full-width {
+    width: 100%;
+}
+
+@mixin max-height-100 {
+    max-height: 100%;
+}
+
+@mixin max-width-100 {
+    max-width: 100%;
+}
+
+@mixin full-size {
+    @include full-height();
+    @include full-width();
+}
+
+@mixin marin-0 {
+    margin: 0px;
+}
+
+@mixin padding-0 {
+    padding: 0px;
+}

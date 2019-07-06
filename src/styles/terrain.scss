@@ -1,0 +1,29 @@
+@import 'mixins.scss';
+
+
+//variables
+$building-background-color: gray;
+$building-height: 60%;
+$building-width: 50%;
+$building-top-margin: 10%;
+$floor-background-color: green;
+$floor-height: 100% - $building-height;
+
+
+//styles
+.building{
+    background: $building-background-color;
+    height: $building-height;
+    width: $building-width;
+    margin: auto;
+    margin-bottom: 0px;
+    margin-top: $building-top-margin;
+    display: flex;
+    flex-direction: column;
+}
+
+.floor{
+    @include full-width();
+    background: $floor-background-color;
+    height: $floor-height;
+}

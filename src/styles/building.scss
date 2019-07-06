@@ -1,0 +1,34 @@
+//variables
+$floor-height: 20%;
+$floor-width: 100%;
+$floor-vertical-padding: 3%;
+
+$window-light-off-color: #111111;
+$window-light-on-color: rgb(235, 235, 43);
+$window-height: 60%;
+$window-width: 15%;
+$window-horizontal-margin: 5%;
+
+//styles
+.building-floor{
+    height: $floor-height;
+    width: $floor-width;
+    background: rgb(90, 90, 90);
+    display: flex;
+    flex-direction: row;
+    padding-top: $floor-vertical-padding;
+    padding-bottom: $floor-vertical-padding;
+}
+
+.window{
+    height: $window-height;
+    width: $window-width;
+    background: $window-light-off-color;
+    margin-left: $window-horizontal-margin;
+    margin-right: $window-horizontal-margin;
+    cursor: pointer;
+}
+
+.window-light-on{
+    background: $window-light-on-color;
+}
