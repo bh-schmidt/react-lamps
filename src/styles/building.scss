@@ -4,9 +4,9 @@ $floor-width: 100%;
 $floor-vertical-padding: 3%;
 
 $window-light-off-color: #111111;
-$window-light-on-color: rgb(235, 235, 43);
+$window-light-on-color: rgb(201, 175, 32);
 $window-height: 60%;
-$window-width: 15%;
+$window-width: 23.333%;
 $window-horizontal-margin: 5%;
 
 //styles
@@ -31,5 +31,5 @@ $window-horizontal-margin: 5%;
 }
 
 .window-light-on{
-    background: $window-light-on-color;
+    background: rgb(252, 233, 159);//$window-light-on-color;
 }

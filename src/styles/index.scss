@@ -4,8 +4,8 @@
 @import 'controls.scss';
 
 //variables
-$construction-div-size: 60%;
-$controls-div-width: 100% - $construction-div-size;
+$building-div-size: 60%;
+$controls-div-width: 100% - $building-div-size;
 $controls-pading: 2%;
 
 $label-font-size: 14pt;
@@ -63,7 +63,7 @@ label {
 
 .terrain{
     @include full-height();
-    width: $construction-div-size;
+    width: $building-div-size;
     @include max-height-100();
     background: lightblue;
 }

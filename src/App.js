@@ -4,7 +4,7 @@ import Building from './components/Building';
 import Controls from './components/Controls';
 
 const FloorsCount = 5;
-const WindowsCount = 4;
+const WindowsCount = 3;
 
 class App extends Component {
     constructor(props) {
