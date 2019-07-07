@@ -1,45 +1,18 @@
 import React, { Component } from 'react';
 import Controls from './components/Controls/Controls';
 import BuildingFloor from './components/BuildingFloor/BuildingFloor';
-
-
-const FloorsCount = 5;
-const WindowsCount = 3;
+import FloorFactory from './shared/factory/FloorFactory';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            floors: this.generateFloors(),
+            floors: FloorFactory.generateFloors(),
             isDay: true
         }
     }
 
-    generateFloors = () => {
-        var floors = [];
-        for (let i = 0; i < FloorsCount; i++) {
-            floors.push({
-                id: i,
-                windows: this.generateWindows()
-
-            })
-        }
-        return floors;
-    }
-
-    generateWindows = () => {
-        var windows = [];
-        for (let i = 0; i < WindowsCount; i++) {
-            windows.push({
-                id: i,
-                lightOn: false
-
-            })
-        }
-        return windows;
-    }
-
-    changeWindowLight = (floor) => {
+    updateFloorsStatus = (floor) => {
         const floors = this.state.floors;
         const floorOfArray = floors.find(x => x.id === floor.id);
         floorOfArray.windows = floor.windows;
@@ -65,7 +38,7 @@ class App extends Component {
                 <div className={this.getTerrainClassName()}>
                     <div className="building">
                         {this.state.floors.map(floor => (
-                            <BuildingFloor key={floor.id} floor={floor} changeWindowLight={this.changeWindowLight}></BuildingFloor>
+                            <BuildingFloor key={floor.id} floor={floor} updateFloorsStatus={this.updateFloorsStatus}></BuildingFloor>
                         ))}
                     </div>
                     <div className="floor"></div>
