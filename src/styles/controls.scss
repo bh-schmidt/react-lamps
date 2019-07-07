@@ -1,11 +1,12 @@
 //variables
 $light-button-margin: 20px;
-$light-button-padding: 10px;
-$light-button-background: white;
 $light-button-border: 1;
-$light-button-border-radius: 15px;
-$light-button-click-background: rgba(255, 0, 0, 0.05);
-$light-button-transition: 0.3s;
+
+$button-background: white;
+$button-border-radius: 15px;
+$button-padding: 10px;
+$button-click-background: rgba(255, 0, 0, 0.05);
+$button-transition: 0.3s;
 
 $submit-button-vertical-margin: 10px;
 
@@ -27,12 +28,17 @@ $red-border: 1px solid rgba(255, 0, 0, 0.3);
 }
 
 .button {
-    background: $light-button-background;
-    border-radius: $light-button-border-radius;
+    padding: $button-padding;
+    background: $button-background;
+    border-radius: $button-border-radius;
     border: $red-border;
     cursor: pointer;
     box-shadow: $contrast-box-shadow;
-    padding: $light-button-padding;
+}
+
+.button:active{
+    background: $button-click-background;
+    transition: $button-transition;
 }
 
 .submit-button {
@@ -46,10 +52,7 @@ $red-border: 1px solid rgba(255, 0, 0, 0.3);
     margin: $light-button-margin;
 }
 
-.light-button:active{
-    background: $building-background-color;
-    transition: $light-button-transition;
-}
+
 
 
 .light-on-icon{
@@ -67,7 +70,7 @@ $red-border: 1px solid rgba(255, 0, 0, 0.3);
     margin-bottom: 5px;
     padding: 10px;
     width: 100%;
-    border-radius: $light-button-border-radius;
+    border-radius: $button-border-radius;
     border: $red-border;
     box-shadow: $contrast-box-shadow;
 }

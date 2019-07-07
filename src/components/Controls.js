@@ -61,7 +61,7 @@ class Controls extends Component {
         return (
             <div className="controls-area">
                 <div style={{ textAlign: "center" }}>
-                    <button className="button light-button" onClick={this.turnAllLightsOff} disabled={!this.canTurnLightsOff()}><span className="light-off-icon"></span></button>
+                    <button className="button light-button" onClick={this.turnAllLightsOff} disabled={!this.canTurnLightsOff()}><i className="light-off-icon"></i></button>
                     <button className="button light-button" onClick={this.turnAllLightsOn} disabled={!this.canTurnLightsOn()}><span className="light-on-icon"></span></button>
                 </div>
 
