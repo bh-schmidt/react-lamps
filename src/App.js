@@ -1,7 +1,7 @@
-import axios from 'axios';
 import React, { Component } from 'react';
-import Building from './components/Building';
-import Controls from './components/Controls';
+import Controls from './components/Controls/Controls';
+import BuildingFloor from './components/BuildingFloor/BuildingFloor';
+
 
 const FloorsCount = 5;
 const WindowsCount = 3;
@@ -11,34 +11,8 @@ class App extends Component {
         super(props);
         this.state = {
             floors: this.generateFloors(),
-            latitude: '-25.4457569',
-            longitude: '-49.2867721',
             isDay: true
         }
-    }
-
-    componentDidMount = () => {
-        this.getTime();
-    }
-
-    getTime = async () => {
-        if (!this.isCoordinateValid())
-            return;
-
-        try {
-            const res = await axios.get(`https://api.sunrise-sunset.org/json?lat=${this.state.latitude}&lng=${this.state.longitude}&date=today&formatted=0`)
-            const sunrise = new Date(res.data.results.sunrise)
-            const sunset = new Date(res.data.results.sunset)
-            const atualDate = new Date();
-
-            this.setState({ isDay: atualDate > sunrise && atualDate < sunset });
-        } catch (error) {
-            console.error(error)
-        }
-    };
-
-    isCoordinateValid = () => {
-        return !isNaN(this.state.latitude) && !isNaN(this.state.longitude)
     }
 
     generateFloors = () => {
@@ -65,7 +39,11 @@ class App extends Component {
         return windows;
     }
 
-    changeWindowLight = (floors) => {
+    changeWindowLight = (floor) => {
+        const floors = this.state.floors;
+        const floorOfArray = floors.find(x => x.id === floor.id);
+        floorOfArray.windows = floor.windows;
+
         this.setState({ floors })
     }
 
@@ -73,9 +51,8 @@ class App extends Component {
         this.setState({ floors })
     }
 
-    updateCoordinates = (latitude, longitude) => {
-        this.setState({ latitude, longitude });
-        this.getTime();
+    updateDayStatus = (isDay) => {
+        this.setState({ isDay });
     }
 
     getTerrainClassName = () => {
@@ -83,16 +60,17 @@ class App extends Component {
     }
 
     render() {
-        const state = this.state;
-
         return (
             <div className="application">
                 <div className={this.getTerrainClassName()}>
-                    <Building floors={state.floors} changeWindowLight={this.changeWindowLight}></Building>
+                    <div className="building">
+                        {this.state.floors.map(floor => (
+                            <BuildingFloor key={floor.id} floor={floor} changeWindowLight={this.changeWindowLight}></BuildingFloor>
+                        ))}
+                    </div>
                     <div className="floor"></div>
                 </div >
-                <Controls floors={this.state.floors} updateFloors={this.updateFloors} latitude={this.state.latitude} longitude={this.state.longitude}
-                    updateCoordinates={this.updateCoordinates}></Controls>
+                <Controls floors={this.state.floors} updateFloors={this.updateFloors} updateDayStatus={this.updateDayStatus}></Controls>
             </div>
         )
     };

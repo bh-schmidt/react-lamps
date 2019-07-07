@@ -13,7 +13,10 @@ $submit-button-vertical-margin: 10px;
 $contrast-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 $red-border: 1px solid rgba(255, 0, 0, 0.3);
 
-
+$form-label-font-size: 14pt;
+$form-label-top-margin: 15px;
+$form-label-bottom-margin: 5px;
+$form-label-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 //styles
 @mixin icon {
@@ -21,6 +24,24 @@ $red-border: 1px solid rgba(255, 0, 0, 0.3);
     float: left;
     width: 40px;
     height: 40px;
+}
+
+.form-label {
+    display: block;
+    font-size: $form-label-font-size;
+    margin-top: $form-label-top-margin;
+    margin-bottom: $form-label-bottom-margin;
+    font-family: $form-label-font-family;
+}
+
+.inline-data {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 10pt;
+
+    label {
+        margin-right: 5px;
+    }
 }
 
 .right-align{
@@ -51,9 +72,6 @@ $red-border: 1px solid rgba(255, 0, 0, 0.3);
 .light-button {
     margin: $light-button-margin;
 }
-
-
-
 
 .light-on-icon{
     background: url('../icons/light-on.png') no-repeat;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Window from './Window';
+import Window from './Window/Window';
 
 class BuildingFloor extends Component {
     changeWindowLight = (window) => {

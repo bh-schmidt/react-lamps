@@ -8,12 +8,6 @@ $building-div-size: 60%;
 $controls-div-width: 100% - $building-div-size;
 $controls-pading: 2%;
 
-$label-font-size: 14pt;
-$label-top-margin: 15px;
-$label-bottom-margin: 5px;
-$label-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-
 //styles
 * {
     box-sizing: border-box;
@@ -39,12 +33,7 @@ div {
 }
 
 label {
-    display: block;
     font-weight: bold;
-    font-size: $label-font-size;
-    margin-top: $label-top-margin;
-    margin-bottom: $label-bottom-margin;
-    font-family: $label-font-family;
 }
 
 #root{
@@ -76,4 +65,5 @@ label {
     @include full-height();
     width: $controls-div-width;
     padding: $controls-pading;
+    overflow: auto;
 }

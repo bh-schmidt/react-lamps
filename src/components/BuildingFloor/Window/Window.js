@@ -5,7 +5,6 @@ class Window extends Component {
 
     changeWindowLight = () => {
         const window = this.props.window;
-
         window.lightOn = !window.lightOn;
 
         this.props.changeWindowLight(window);
