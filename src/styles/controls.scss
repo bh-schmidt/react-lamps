@@ -5,13 +5,13 @@ $light-button-border: 1;
 $button-background: white;
 $button-border-radius: 15px;
 $button-padding: 10px;
-$button-click-background: rgba(255, 0, 0, 0.05);
+$button-click-background: rgba(80, 191, 228, 0.1);
 $button-transition: 0.3s;
 
 $submit-button-vertical-margin: 10px;
 
 $contrast-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-$red-border: 1px solid rgba(255, 0, 0, 0.3);
+$red-border: 1px solid rgba(80, 191, 228, 0.6);
 
 $form-label-font-size: 14pt;
 $form-label-top-margin: 15px;
@@ -66,7 +66,6 @@ $form-label-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: $submit-button-vertical-margin;
     margin-bottom: $submit-button-vertical-margin;
     font-weight: bold;
-    // font-size: 12pt;
 }
 
 .light-buttons-div {

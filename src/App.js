@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Controls from './components/Controls/Controls';
-import BuildingFloor from './components/BuildingFloor/BuildingFloor';
 import FloorFactory from './shared/factory/FloorFactory';
+import Scenario from './components/Scenario/Scenario';
 
 class App extends Component {
     constructor(props) {
@@ -28,21 +28,11 @@ class App extends Component {
         this.setState({ isDay });
     }
 
-    getTerrainClassName = () => {
-        return this.state.isDay ? 'terrain' : 'terrain night';
-    }
-
     render() {
         return (
             <div className="application">
-                <div className={this.getTerrainClassName()}>
-                    <div className="building">
-                        {this.state.floors.map(floor => (
-                            <BuildingFloor key={floor.id} floor={floor} updateFloorsStatus={this.updateFloorsStatus}></BuildingFloor>
-                        ))}
-                    </div>
-                    <div className="floor"></div>
-                </div >
+                <Scenario {...this.state} updateFloorsStatus={this.updateFloorsStatus}></Scenario>
+
                 <Controls floors={this.state.floors} updateFloors={this.updateFloors} updateDayStatus={this.updateDayStatus}></Controls>
             </div>
         )

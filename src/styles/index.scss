@@ -50,14 +50,14 @@ label {
     flex-direction: row;
 }
 
-.terrain{
+.scenario{
     @include full-height();
     width: $building-div-size;
     @include max-height-100();
     background: lightblue;
 }
 
-.terrain.night {
+.scenario.night {
     background: #222222;
 }
 
