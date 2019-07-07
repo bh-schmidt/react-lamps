@@ -1,20 +1,22 @@
 @import 'mixins.scss';
 @import 'terrain.scss';
 @import 'building.scss';
+@import 'controls.scss';
 
 //variables
-$construction-div-size: 80%;
-$buttons-div-width: 100% - $construction-div-size;
-$buttons-margin: 4px;
+$construction-div-size: 60%;
+$controls-div-width: 100% - $construction-div-size;
+$controls-pading: 2%;
+
+$label-font-size: 14pt;
+$label-top-margin: 15px;
+$label-bottom-margin: 5px;
+$label-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 
 //styles
 * {
     box-sizing: border-box;
-}
-
-div {
-    @include marin-0();
 }
 
 html{
@@ -30,6 +32,19 @@ body{
     @include marin-0();
     @include padding-0();
     @include max-height-100();
+}
+
+div {
+    @include marin-0();
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    font-size: $label-font-size;
+    margin-top: $label-top-margin;
+    margin-bottom: $label-bottom-margin;
+    font-family: $label-font-family;
 }
 
 #root{
@@ -57,15 +72,8 @@ body{
     background: #222222;
 }
 
-.buttons-area{
+.controls-area{
     @include full-height();
-    width: $buttons-div-width;
-}
-
-button.light-on-button{
-    margin: $buttons-margin;
-}
-
-.light-off-button{
-    margin: $buttons-margin;
+    width: $controls-div-width;
+    padding: $controls-pading;
 }

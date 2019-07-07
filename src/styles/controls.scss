@@ -1,0 +1,73 @@
+//variables
+$light-button-margin: 20px;
+$light-button-padding: 10px;
+$light-button-background: white;
+$light-button-border: 1;
+$light-button-border-radius: 15px;
+$light-button-click-background: rgba(255, 0, 0, 0.05);
+$light-button-transition: 0.3s;
+
+$submit-button-vertical-margin: 10px;
+
+$contrast-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+$red-border: 1px solid rgba(255, 0, 0, 0.3);
+
+
+
+//styles
+@mixin icon {
+    background-size: 100% 100%;
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+.right-align{
+    text-align: right;
+}
+
+.button {
+    background: $light-button-background;
+    border-radius: $light-button-border-radius;
+    border: $red-border;
+    cursor: pointer;
+    box-shadow: $contrast-box-shadow;
+    padding: $light-button-padding;
+}
+
+.submit-button {
+    margin-top: $submit-button-vertical-margin;
+    margin-bottom: $submit-button-vertical-margin;
+    font-weight: bold;
+    // font-size: 12pt;
+}
+
+.light-button {
+    margin: $light-button-margin;
+}
+
+.light-button:active{
+    background: $building-background-color;
+    transition: $light-button-transition;
+}
+
+
+.light-on-icon{
+    background: url('../icons/light-on.png') no-repeat;
+    @include icon();
+}
+
+.light-off-icon {
+    background: url('../icons/light-off.png') no-repeat;
+    @include icon();
+}
+
+.input-text {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    width: 100%;
+    border-radius: $light-button-border-radius;
+    border: $red-border;
+    box-shadow: $contrast-box-shadow;
+}

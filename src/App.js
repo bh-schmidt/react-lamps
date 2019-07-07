@@ -1,7 +1,7 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import Building from './components/Building';
-import Buttons from './components/Buttons';
-import axios from 'axios';
+import Controls from './components/Controls';
 
 const FloorsCount = 5;
 const WindowsCount = 4;
@@ -22,6 +22,9 @@ class App extends Component {
     }
 
     getTime = async () => {
+        if (!this.isCoordinateValid())
+            return;
+
         try {
             const res = await axios.get(`https://api.sunrise-sunset.org/json?lat=${this.state.latitude}&lng=${this.state.longitude}&date=today&formatted=0`)
             const sunrise = new Date(res.data.results.sunrise)
@@ -33,6 +36,10 @@ class App extends Component {
             console.error(error)
         }
     };
+
+    isCoordinateValid = () => {
+        return !isNaN(this.state.latitude) && !isNaN(this.state.longitude)
+    }
 
     generateFloors = () => {
         var floors = [];
@@ -66,6 +73,11 @@ class App extends Component {
         this.setState({ floors })
     }
 
+    updateCoordinates = (latitude, longitude) => {
+        this.setState({ latitude, longitude });
+        this.getTime();
+    }
+
     getTerrainClassName = () => {
         return this.state.isDay ? 'terrain' : 'terrain night';
     }
@@ -79,7 +91,8 @@ class App extends Component {
                     <Building floors={state.floors} changeWindowLight={this.changeWindowLight}></Building>
                     <div className="floor"></div>
                 </div >
-                <Buttons floors={this.state.floors} updateFloors={this.updateFloors}></Buttons>
+                <Controls floors={this.state.floors} updateFloors={this.updateFloors} latitude={this.state.latitude} longitude={this.state.longitude}
+                    updateCoordinates={this.updateCoordinates}></Controls>
             </div>
         )
     };
