@@ -13,11 +13,12 @@ O projeto foi desenvolvido pensando em uma visualização Desktop, porém está 
 
 ## Tecnologias
 
-* React - biblioteca javascript para desenvolver o front end.
-* Axios - biblioteca para realizar chamadas rest.
-* dateformat - biblioteca para formatar as datas.
-* node-sass - extensão do CSS3.
-* toastr - biblioteca para exibir mensagens ao usuário.
+* Node 10.16.0 - JavaScript environment.
+* React 16.8.6 - front end library.
+* Axios 0.19.0 - biblioteca para realizar chamadas rest.
+* dateformat 3.0.3 - biblioteca para formatar as datas.
+* node-sass 4.12.0 - extensão do CSS3.
+* toastr 2.1.4 - biblioteca para exibir mensagens ao usuário.
 
 ## Funcionamento técnico
 
