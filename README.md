@@ -35,18 +35,24 @@ A estrutura de pastas é composta pelas seguintes pastas:
 
 `icons`: pasta dos icones do projeto.
 
-`shared`: pasta onde está tudo que é compartilhado pelo sistema todo.
+`imgs`: imagens de textura.
 
-`shared\factory`: pasta para implementar o padrão facotry.
+`shared`: tudo que é compartilhado por todo o sistema.
 
-`shared\http`: pasta destinada a arquivos relacionados a Http, sendo eles, enums, constantes, rotas, etc.
+`shared\factory`: implementação do padrão facotry.
 
-`shared\toastr`: pasta para a implementar a biblioteca toastr.
+`shared\http`: arquivos relacionados a http, sendo eles, enums, constantes, rotas, etc.
 
-`styles`: pasta onde são armazenados todos os itens de estilo do sistema.
+`shared\toastr`: implementação da biblioteca toastr.
 
-## Questionamentos
+`styles`: armazenamento de todos os itens de estilo do sistema.
+
+## Possíveis Questionamentos
 
 > Porque não redux?
 
 R: Redux é para casos muito específicos, para quando é necessário armazenar e organizar uma informação que será consumida em vários componentes que estão completamente separados um do outro. Quando os componentes estão relacionados e a comunicação entre eles é rápida e fácil o Redux apenas deixará o sistema complexo.
+
+> Porque bloquear a coordenada zero?
+
+R: Aparentemente a Sunrise Sunset API não aceita a coordenada zero, então para evitar erros foi zero foi bloqueado.
