@@ -1,5 +1,5 @@
 @import 'mixins.scss';
-@import 'terrain.scss';
+@import 'scenario.scss';
 @import 'building.scss';
 @import 'controls.scss';
 
@@ -54,11 +54,11 @@ label {
     @include full-height();
     width: $building-div-size;
     @include max-height-100();
-    background: lightblue;
+    background: url('../imgs/day-background.jpg')
 }
 
 .scenario.night {
-    background: #222222;
+    background: url('../imgs/night-background.jpg')
 }
 
 .controls-area{
@@ -66,4 +66,12 @@ label {
     width: $controls-div-width;
     padding: $controls-pading;
     overflow: auto;
+}
+
+.toast {
+  opacity: 1 !important;
+}
+
+#toast-container > div {
+  opacity: 1 !important; 
 }

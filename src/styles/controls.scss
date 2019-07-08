@@ -44,6 +44,11 @@ $form-label-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 }
 
+.required-field {
+    font-weight: bold;
+    color: red;
+}
+
 .right-align{
     text-align: right;
 }

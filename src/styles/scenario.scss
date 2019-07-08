@@ -2,17 +2,18 @@
 
 
 //variables
-$building-background-color: gray;
+$building-background: url('../imgs/building-texture.jpg');
 $building-height: 60%;
 $building-width: 50%;
 $building-top-margin: 20%;
-$floor-background-color: green;
-$floor-height: 100% - $building-height;
+$building-border-radius: 2px 2px 0px 0px;
 
+$floor-background-color: url('../imgs/grass-texture.jpg');
+$floor-height: 100% - $building-height;
+$floor-box-shadow: 0px -2px 5px rgb(0, 53, 0);
 
 //styles
 .building{
-    background: $building-background-color;
     height: $building-height;
     width: $building-width;
     margin: auto;
@@ -20,10 +21,13 @@ $floor-height: 100% - $building-height;
     margin-top: $building-top-margin;
     display: flex;
     flex-direction: column;
+    border-radius: $building-border-radius;
+    background: $building-background;
 }
 
 .floor{
     @include full-width();
     background: $floor-background-color;
     height: $floor-height;
+    box-shadow: $floor-box-shadow;
 }

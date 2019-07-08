@@ -13,7 +13,6 @@ $window-horizontal-margin: 5%;
 .building-floor{
     height: $floor-height;
     width: $floor-width;
-    background: rgb(90, 90, 90);
     display: flex;
     flex-direction: row;
     padding-top: $floor-vertical-padding;

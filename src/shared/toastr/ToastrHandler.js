@@ -5,9 +5,9 @@ export function configureToastr() {
     toastr.options = {
         closeButton: true,
         debug: false,
-        newestOnTop: false,
+        newestOnTop: true,
         progressBar: true,
-        positionClass: "toast-bottom-right",
+        positionClass: "toast-top-right",
         preventDuplicates: false,
         onclick: null,
         showDuration: 300,

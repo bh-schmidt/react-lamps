@@ -11,6 +11,9 @@ class CoordinatesFormulary extends Component {
         longitude: '-49.2867721',
     }
 
+    latitude = undefined;
+    longitude = undefined;
+
     componentDidMount = () => {
         this.getTime();
     }
@@ -22,9 +25,57 @@ class CoordinatesFormulary extends Component {
     applyCoordinates = e => {
         e.preventDefault();
 
-        if (this.isValidCoordinates()) {
-            this.getTime();
+        if (!this.isValidLatitude()) {
+            this.showInvalidInputError();
+            this.latitude.focus();
+            return;
         }
+
+        if (this.isLatitudeZero()) {
+            this.showCoordinateZeroError();
+            this.latitude.focus();
+            return;
+        }
+
+        if (!this.isValidLongitude()) {
+            this.showInvalidInputError();
+            this.longitude.focus();
+            return;
+        }
+
+        if (this.isLongitudeZero()) {
+            this.showCoordinateZeroError();
+            this.longitude.focus();
+            return;
+        }
+
+        this.getTime();
+    }
+
+    showCoordinateZeroError = () => {
+        ToastrHandler.error('As coordenadas devem ser diferentes de zero.')
+    }
+
+    showInvalidInputError = () => {
+        ToastrHandler.error('Preencha as coordenadas corretamente.');
+    }
+
+    isLatitudeZero = () => {
+        return +this.state.latitude === 0;
+    }
+
+    isLongitudeZero = () => {
+        return +this.state.longitude === 0;
+    }
+
+    isValidLatitude = () => {
+        return this.state.latitude !== '' &&
+            !isNaN(this.state.latitude);
+    }
+
+    isValidLongitude = () => {
+        return this.state.longitude !== '' &&
+            !isNaN(this.state.longitude);
     }
 
     getTime = async () => {
@@ -63,21 +114,31 @@ class CoordinatesFormulary extends Component {
         this.props.updateDayStatus(isDay);
     }
 
-    isValidCoordinates = () => {
-        return !isNaN(this.state.latitude) && !isNaN(this.state.longitude)
-    }
-
     render() {
         return (
             <form>
                 <div>
-                    <label htmlFor='latitude' className='form-label'>Latitude</label>
-                    <input id='latitude' name='latitude' type='number' className="input-text" value={this.state.latitude} onChange={this.onTextChange}></input>
+                    <label htmlFor='latitude' className='form-label'>Latitude<span className='required-field'> *</span></label>
+                    <input
+                        id='latitude'
+                        name='latitude'
+                        type='number'
+                        className="input-text"
+                        value={this.state.latitude}
+                        onChange={this.onTextChange}
+                        ref={input => { this.latitude = input }}></input>
                 </div>
 
                 <div>
-                    <label htmlFor='longitude' className='form-label'>Longitude</label>
-                    <input id='longitude' name='longitude' type='number' className="input-text" value={this.state.longitude} onChange={this.onTextChange}></input>
+                    <label htmlFor='longitude' className='form-label'>Longitude<span className='required-field'> *</span></label>
+                    <input
+                        id='longitude'
+                        name='longitude'
+                        type='number'
+                        className="input-text"
+                        value={this.state.longitude}
+                        onChange={this.onTextChange}
+                        ref={input => { this.longitude = input }}></input>
                 </div>
 
                 <div className="right-align">
