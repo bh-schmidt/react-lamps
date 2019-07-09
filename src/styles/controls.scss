@@ -34,13 +34,17 @@ $form-label-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-family: $form-label-font-family;
 }
 
-.inline-data {
+.data {
     margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 10pt;
+    font-size: 12pt;
 
     label {
+        margin-bottom: 0px;
         margin-right: 5px;
+    }
+
+    span {
+        display: block;
     }
 }
 
